@@ -1,0 +1,118 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Configuratuions {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+      <div class="d-block mb-4 mb-md-0">
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+              <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                <li class="breadcrumb-item"><a href="dashboard.html"><span class="fas fa-home"></span></a></li>
+                <li class="breadcrumb-item"><a href="dashboard.html">Orgnisation</a></li>
+				  <li class="breadcrumb-item"><a href="configurations.html">Configuration</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Site Registration</li>
+              </ol>
+          </nav>
+	  </div>
+      <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-primary">Share</button>
+              <button type="button" class="btn btn-sm btn-outline-primary">Export</button>
+          </div>
+      </div>
+  </div>
+  <div class="table-settings mb-4">
+      <div class="row align-items-center justify-content-between">
+          <div class="col col-md-4 col-lg-3 col-xl-8">
+          </div>
+          <div class="col-md-2"><a href="#" class="btn btn-success">Edit Registration</a></div>
+      </div>
+  </div>
+ <div class="container">
+  <div class="card card-body shadow-sm table-wrapper table-responsive">
+      <table class="table table-hover">
+          <tbody>
+		    <form method="POST" class ="post-form" action="/update/{{post.id}}" enctype="multipart/form-data">
+				{% csrf_token %}
+				       	<div class="row">
+				    		<div class="col-xs-12 col-sm-4">
+				    			<div class="input-group form-group">
+						    		<label class="control-label" for="site">Site Name<span style="color:red"> *</span>
+                                        <input type="text" name="site" id="id_site" required maxlength="20" value="{{ post.site }}"/>
+									</label>
+								</div>
+				    		</div>
+				    		<div class="col-xs-12 col-sm-4">
+				    			<div class="input-group form-group">
+						    		<label class="control-label" for="contact">Contact Person<span style="color:red"> *</span>
+                                        <input type="text" name="contact" id="id_contact" required maxlength="100" value="{{ post.contact }}" />
+									</label>
+								</div>
+				    		</div>
+							<div class="col-xs-12 col-sm-4">
+				    			<div class="input-group form-group">
+						    		<label class="control-label" for="capacity">Site Capacity<span style="color:red"> *</span>
+                                         <input type="text" name="capacity" id="id_capacity" required maxlength="254" value="{{ post.capacity }}" />
+									 </label>
+								</div>
+				    		</div>
+				    	</div>
+						<br>
+						<div class="row">
+				    		<div class="col-xs-12 col-sm-4">
+				    			<div class="input-group form-group">
+						    		<label class="control-label" for="location">Location<span style="color:red"> *</span>
+                                        <input type="text" name="location" id="id_location" required maxlength="15" value="{{ post.location }}" />
+									 </label>
+
+								</div>
+				    		</div>
+							<div class="col-xs-12 col-sm-4">
+				    			<div class="input-group form-group">
+						    		<label class="control-label" for="mapped">Asset Tag Mapped<span style="color:red"> *</span>
+                                        <input type="text" name="mapped" id="id_mapped" required maxlength="15" value="{{ post.mapped }}" />
+									 </label>
+								</div>
+				    		</div>
+				    		<div class="col-xs-12 col-sm-4">
+				    			<div class="input-group form-group">
+						    		<label class="control-label" for="status" >Status<span style="color:red"> *</span>
+                                        <input type="text" name="status" id="id_status" required maxlength="15" value="{{ post.status }}" />
+									</label>
+								</div>
+				    			</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-xs-12 col-sm-4">
+				    			<div class="input-group form-group">
+						    		<label class="control-label" for="description" >Description<span style="color:red"> *</span>
+                                        <input type="text" name="description" id="id_description" required maxlength="100" value="{{ post.description }}" />
+									 </label>
+								</div>
+				    		</div>
+						</div>
+				  		<div class="form-group row">
+                            <label class="col-sm-1 col-form-label"></label>
+                                <div class="col-sm-4">
+                                    <button type="submit" class="btn btn-success">Update</button>
+                                </div>
+						</div>
+			</form>
+
+          </tbody>
+
+		</table>
+
+	</div>
+
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

@@ -1,0 +1,122 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Configuratuions {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+      <div class="d-block mb-4 mb-md-0">
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+              <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                <li class="breadcrumb-item"><a href="dashboard.html"><span class="fas fa-home"></span></a></li>
+                <li class="breadcrumb-item"><a href="dashboard.html">Orgnisation</a></li>
+				  <li class="breadcrumb-item"><a href="configurations.html">Configuration</a></li>
+                <li class="breadcrumb-item active" aria-current="page">OBD Registration</li>
+              </ol>
+          </nav>
+        </div>
+      <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-primary">Share</button>
+              <button type="button" class="btn btn-sm btn-outline-primary">Export</button>
+          </div>
+      </div>
+  </div>
+  <div class="table-settings mb-4">
+      <div class="row align-items-center justify-content-between">
+          <div class="col col-md-4 col-lg-3 col-xl-8">
+          </div>
+          <div class="col-md-2"><a href="#" class="btn btn-success">OBD Registration</a></div>
+      </div>
+  </div>
+ <div class="container">
+  <div class="card card-body shadow-sm table-wrapper table-responsive">
+      <table class="table table-hover">
+          <tbody>
+		    <form method="POST" class ="post-form" action="/newOBD">
+				{% csrf_token %}
+				       	<div class="row">
+							<div class="col-xs-12 col-sm-4">
+				    			<div class="input-group form-group">{{ form.tag_name }}
+						    		<label class="control-label" for="tag_name">OBD Model<span style="color:red"> *</span>
+									</label>
+								</div>
+				    		</div>
+
+				    		<div class="col-xs-12 col-sm-4">
+				    			<div class="input-group form-group">{{ form.tag_model }}
+						    		<label class="control-label" for="tag_model">OBD Model<span style="color:red"> *</span>
+									</label>
+								</div>
+				    		</div>
+
+							<div class="col-xs-12 col-sm-4">
+				    			<div class="input-group form-group">{{form.tag_mapped}}
+						    		<label class="control-label" for="tag_mapped">Asset Tag Mapped<span style="color:red"> *</span>
+									 </label>
+								</div>
+				    		</div>
+				    	</div>
+						<br>
+						<div class="row">
+				    		<div class="col-xs-12 col-sm-4">
+				    			<div class="input-group form-group">{{form.car_asset}}
+						    		<label class="control-label" for="car_asset">Car Asset<span style="color:red"> *</span>
+									 </label>
+								</div>
+				    		</div>
+							<div class="col-xs-12 col-sm-4">
+				    			<div class="input-group form-group">{{form.site}}
+						    		<label class="control-label" for="site">Site<span style="color:red"> *</span>
+									 </label>
+								</div>
+				    		</div>
+				    		<div class="col-xs-12 col-sm-4">
+				    			<div class="input-group form-group">{{ form.location }}
+						    		<label class="control-label" for="location">Location<span style="color:red"> *</span>
+									</label>
+								</div>
+				    			</div>
+							</div>
+							<br>
+						<div class="row">
+							<div class="col-xs-12 col-sm-4">
+				    			<div class="input-group form-group">{{form.status}}
+						    		<label class="control-label" for="status" >Status<span style="color:red"> *</span>
+									</label>
+								</div>
+				    			</div>
+							<div class="col-xs-12 col-sm-4">
+				    			<div class="input-group form-group">{{ form.description }}
+						    		<label class="control-label" for="description" >Description<span style="color:red"> *</span>
+									 </label>
+								</div>
+				    		</div>
+						</div>
+
+					<div class="row">
+							<div class="col-sm-8"></div>
+						<div class="col-sm-2">
+							<div class="form-group">
+							<input class="btn  btn-success" id="cancel" name="Submit" type="submit" value="Cancel">
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<div class="form-group">
+							<input class="btn  btn-success" id="submit" name="Submit" type="submit" value="Save">
+							</div>
+						</div>
+					</div>
+			</form>
+		  </tbody>
+		</table>
+	</div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

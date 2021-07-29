@@ -1,0 +1,120 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Configurations {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+      <div class="d-block mb-4 mb-md-0">
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+              <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
+                <li class="breadcrumb-item"><a href="dashboard.html">Organisations</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Configurations</li>
+                  <li class="breadcrumb-item active" aria-current="page">Car-Asset 200</li>
+              </ol>
+          </nav>
+          </div>
+      <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-primary">Share</button>
+              <button type="button" class="btn btn-sm btn-outline-primary">Export</button>
+          </div>
+      </div>
+  </div>
+  <div class="table-settings mb-4">
+      <div class="row align-items-center justify-content-between">
+          <div class="col col-md-4 col-lg-3 col-xl-8">
+       </div>
+          <div class="col-6 col-md-6 col-xl-2 ps-md-0 text-right">
+              <div class="input-group">
+                  <span class="input-group-text" id="basic-addon2"><span class="fas fa-search"></span></span>
+                  <input type="text" class="form-control" id="exampleInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+               </div>
+             </div>
+          <div class="col-md-2"><a href="/newCar" class="btn btn-success">Car Asset Registration</a></div>
+      </div>
+  </div>
+  <div class="card card-body shadow-sm table-wrapper table-responsive">
+      <table class="table table-hover">
+           <thead>
+              <tr>
+                  <th>Car Model</th>
+                  <th>Car Brand</th>
+                  <th>Site</th>
+                  <th>Location</th>
+                  <th>Asset Tag Mapped</th>
+                  <th>Status</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+              </tr>
+           </thead>
+            <tbody>
+            {% for form in posts %}
+              <tr>
+                    <td>{{form.car_model}}</td>
+                    <td>{{form.car_brand}}</td>
+                    <td>{{form.site}}</td>
+                    <td>{{form.location}}</td>
+                    <td>{{form.tag_mapped}}</td>
+                    <td>{{form.status}}</td>
+                   <td>
+                                            <!-- Call to action buttons -->
+                      <ul class="list-inline m-0">
+                         <li class="list-inline-item">
+                             <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><a href="/editCar/{{ form.id }}"><span class="glyphicon glyphicon-pencil" ></span><i class="fa fa-edit"></i></a>
+                              </button>
+                          </li>
+                      </ul>
+                   </td>
+                     <td>
+                         <ul class="list-inline m-0">
+                          <li class="list-inline-item">
+                              <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><a href="/deleteCar/{{ form.id }}"><span class="glyphicon glyphicon-pencil" ></span><i class="fa fa-trash"></i></button>
+                          </li>
+                      </ul>
+                  </td>
+
+              </tr>
+                {% endfor %}
+          </tbody>
+      </table>
+        </div>
+      <br>
+      <div class="card-footer px-3 border-0 d-flex align-items-center justify-content-between">
+          <nav aria-label="Page navigation example">
+              <ul class="pagination mb-0">
+                  <li class="page-item">
+                      <a class="page-link" href="#">Previous</a>
+                  </li>
+                  <li class="page-item">
+                      <a class="page-link" href="#">1</a>
+                  </li>
+                  <li class="page-item active">
+                      <a class="page-link" href="#">2</a>
+                  </li>
+                  <li class="page-item">
+                      <a class="page-link" href="#">3</a>
+                  </li>
+                  <li class="page-item">
+                      <a class="page-link" href="#">4</a>
+                  </li>
+                  <li class="page-item">
+                      <a class="page-link" href="#">5</a>
+                  </li>
+                  <li class="page-item">
+                      <a class="page-link" href="#">Next</a>
+                  </li>
+              </ul>
+          </nav>
+          <div class="fw-bold small d-none d-lg-block">Showing <b>5</b> out of <b>25</b> entries</div>
+      </div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

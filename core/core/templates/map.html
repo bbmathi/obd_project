@@ -1,0 +1,129 @@
+{% extends "layouts/base.html" %}
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+{% load static %}
+{% block content %}
+
+
+<div id="osm-map" style="padding:50px;height:500px;">
+
+  </div>
+<script  type="application/javascript">
+    var element = document.getElementById('osm-map');
+    var map = L.map(element);
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    var target = L.latLng('11.4467949', '77.6824312');
+    var target1 = L.latLng('13.1278636', '80.2524312');
+    var target2 = L.latLng('17.4528636', '78.4724312');
+    map.setView(target, 14);
+    L.marker(target).addTo(map);
+    L.marker(target1).addTo(map);
+    L.marker(target2).addTo(map);
+</script>
+<br>
+<div class="row justify-content-md-center">
+        <div class="col-12 col-sm-6 col-xl-4 mb-4">
+            <div class="card border-light shadow-sm">
+                    <div class="card-body">
+                        <div class="row d-block d-xl-flex align-items-center">
+                            <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                                    <span class='fa-stack fa-lg'>
+                                        <i class='fas fa-circle fa-stack-1x' style="font-size:55px;color:#47d1d1"></i>
+                                        <i class='fas fa-city fa-stack-1x fa-inverse' style="font-size:20px;color:white"></i>
+                                    </span>
+                                    </div>
+                            <div class="col-12 col-xl-7 px-xl-0">
+                                <div class="d-none d-sm-block">
+                                    <a class="nav-link" href="/show">
+                                        <h3 class="mb-1">3</h3>
+                                        <h6 class="h6">Sites</h6>
+                                    </a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-4 mb-4">
+            <div class="card border-light shadow-sm">
+                    <div class="card-body">
+                        <div class="row d-block d-xl-flex align-items-center">
+                            <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                                    <span class='fa-stack fa-lg'>
+                                        <i class='fas fa-circle fa-stack-1x' style="font-size:55px;color: #1ab2ff"></i>
+                                        <i class='fas fa-car-side fa-stack-1x fa-inverse' style="font-size:20px;color:white"></i>
+                                    </span>
+                                </div>
+                            <div class="col-12 col-xl-7 px-xl-0">
+                            <div class="d-none d-sm-block">
+                                <a class="nav-link" href="/showCar" alt="alert">
+                                <h3 class="mb-1">3</h3>
+                                <h6 class="h6">Asset Cars</h6>
+                                    </a>
+                            </div>
+                          </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+    <div class="col-12 col-sm-6 col-xl-4 mb-4">
+            <div class="card border-light shadow-sm">
+                <div class="card-body">
+                    <div class="row d-block d-xl-flex align-items-center">
+                        <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                                <span class='fa-stack fa-lg'>
+                                     <i class='fas fa-circle fa-stack-1x' style="font-size:55px;color: #9933ff" ></i>
+                                     <i class='fas fa-ethernet fa-stack-1x fa-inverse' style="font-size:20px;color:white" ></i>
+                                </span>
+
+                          </div>
+                        <div class="col-12 col-xl-7 px-xl-0">
+                            <div class="d-none d-sm-block">
+                                <a class="nav-link"  href="/showOBD" alt="alert">
+                                <h3 class="mb-1">2</h3>
+                                <h6 class="h6">Tag OBD</h6>
+                                </a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-xl-4 mb-4">
+            <div class="card border-light shadow-sm">
+                <div class="card-body">
+                    <div class="row d-block d-xl-flex align-items-center">
+                        <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                                <span class='fa-stack fa-lg'>
+                                     <i class='fas fa-circle fa-stack-1x' style="font-size:55px;color:#ff3333" ></i>
+                                     <i class='fas fa-exclamation-triangle fa-stack-1x fa-inverse' style="font-size:20px;color:white" ></i>
+                                </span>
+                          </div>
+                        <div class="col-12 col-xl-7 px-xl-0">
+                            <div class="d-none d-sm-block">
+                                <a class="nav-link" href="alert_view.html" alt="alert">
+                                <h3 class="mb-1">2</h3>
+                                <h6 class="h6">Total Alerts</h6></a>
+                              </div>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+
+{% block javascripts %}
+
+
+
+{% endblock javascripts %}
